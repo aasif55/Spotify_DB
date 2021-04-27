@@ -1,0 +1,69 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| spotify            |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.04 sec)
+
+mysql> use spotify;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_spotify |
++-------------------+
+| playlist          |
+| users             |
++-------------------+
+2 rows in set (0.02 sec)
+
+mysql> select * from playlist;
++------------+-----------+-------+------------------------------------------+
+| idplaylist | playlist  | users | track                                    |
++------------+-----------+-------+------------------------------------------+
+|          1 | Hollywood |     1 | Runaway-LP                               |
+|          2 | Bollywood |     1 | Aadat-Atif                               |
+|          3 | Marathi   |     2 | Zingaat-AA                               |
+|          4 | Bollywood |     2 | Dilli Wali GirlFriend-Arijit             |
+|          5 | Hollywood |     3 | In The End-LP                            |
+|          6 | Punjabi   |     3 | Titliya-Afsana                           |
+|          7 | Hollywood |     1 | On My Way-Alan                           |
+|          8 | BTS       |     2 | Playing With Fire-Black Pink             |
+|          9 | Punjabi   |     1 | Proper Patola-Diljit                     |
+|         10 | Punjabi   |     2 | Gulabi Pagg-Diljit                       |
+|         11 | Bollywood |     4 | Aakhein Khuli Ho Ya Ho Band-Udit Narayan |
++------------+-----------+-------+------------------------------------------+
+11 rows in set (0.03 sec)
+
+mysql> select * from playlist where idplaylist = 4;
++------------+-----------+-------+------------------------------+
+| idplaylist | playlist  | users | track                        |
++------------+-----------+-------+------------------------------+
+|          4 | Bollywood |     2 | Dilli Wali GirlFriend-Arijit |
++------------+-----------+-------+------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from playlist where users = 1;
++------------+-----------+-------+----------------------+
+| idplaylist | playlist  | users | track                |
++------------+-----------+-------+----------------------+
+|          1 | Hollywood |     1 | Runaway-LP           |
+|          2 | Bollywood |     1 | Aadat-Atif           |
+|          7 | Hollywood |     1 | On My Way-Alan       |
+|          9 | Punjabi   |     1 | Proper Patola-Diljit |
++------------+-----------+-------+----------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from playlist where track = 'Titliya-Afsana';
++------------+----------+-------+----------------+
+| idplaylist | playlist | users | track          |
++------------+----------+-------+----------------+
+|          6 | Punjabi  |     3 | Titliya-Afsana |
++------------+----------+-------+----------------+
+1 row in set (0.00 sec)
